@@ -27,6 +27,7 @@ class TagsRecentlyTest(unittest.TestCase):
         import config
         tag = config.tags[0]
         api = tags_recently.get_api()
+        self.assertRegexpMatches(api, "https:", "use api with https")
         self.assertRegexpMatches(api, config.client_id)
         self.assertRegexpMatches(api, tag)
 
