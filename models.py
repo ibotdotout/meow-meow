@@ -1,8 +1,8 @@
 class User():
     def __init__(self, json):
         self.username = json['username']
-        self.profile_picture = json['profiel_picture']
-        self.fullname = json['full_name']
+        self.profile_picture = json['profile_picture']
+        self.full_name = json['full_name']
 
 
 class Image():
@@ -28,4 +28,4 @@ class InstragramItem():
     def __init__(self, json):
         self.user = User(json['user'])
         self.caption = Caption(json['caption'])
-        self.image = ImageResolutions(json['images'])
+        self.images = ImageResolutions(json['images'])
