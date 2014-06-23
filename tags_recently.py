@@ -8,6 +8,6 @@ def get_api():
     return api
 
 
-def request_api_json():
+def request_api():
     import requests
-    return requests.get(get_api()).json()
+    return requests.get(get_api())

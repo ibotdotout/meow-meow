@@ -6,7 +6,7 @@ class TagsRecentlyTest(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.json = tags_recently.request_api_json()
+        cls.request = tags_recently.request_api()
 
     def test_has_config_file(self):
         import os.path
@@ -32,8 +32,10 @@ class TagsRecentlyTest(unittest.TestCase):
         self.assertRegexpMatches(api, tag)
 
     def test_request_api_get_something(self):
-        self.assertTrue(isinstance(self.json, dict))
+        import requests
+        self.assertTrue(isinstance(self.request, requests.models.Response))
 
     def test_request_not_get_error(self):
-        if self.json:
-            self.assertEqual(self.json['meta']['code'], 200)
+        if self.request:
+            json = self.request.json()
+            self.assertEqual(json['meta']['code'], 200)
