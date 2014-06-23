@@ -1,5 +1,8 @@
 # Created by http://www.gitignore.io
 
+## project ###
+config.py
+
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
