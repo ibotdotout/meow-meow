@@ -24,6 +24,6 @@ def code_changed(file)
     end
     # print filename
     print("#{file}\n\n")
-    # run nosetests with coverage
-    system("nosetests --with-coverage -v #{file}")
+    system("nosetests -v #{file}")
+
 end
