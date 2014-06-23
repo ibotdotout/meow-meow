@@ -5,10 +5,10 @@ import models
 class ModelsTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        import tags_recently
-        cls.request = tags_recently.request_api()
-        cls.json = cls.request.json()
-        cls.json = cls.json['data'][0]
+        import json
+        with open('tests/request_test.json') as json_data:
+            cls.json = json.load(json_data)
+            cls.json = cls.json['data'][0]
 
     def test_user_model(self):
         json = self.json['user']
