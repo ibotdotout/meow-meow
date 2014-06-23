@@ -12,7 +12,7 @@ class Image():
         self.height = json['height']
 
 
-class ImageResulutions():
+class ImageResolutions():
     def __init__(self, json):
         self.low = Image(json['low_resolution'])
         self.thumbnail = Image(json['thumbnail'])
@@ -24,8 +24,8 @@ class Caption():
         self.text = json['text']
 
 
-class InstragramData():
+class InstragramItem():
     def __init__(self, json):
         self.user = User(json['user'])
         self.caption = Caption(json['caption'])
-        self.image = ImageResulutions(json['images'])
+        self.image = ImageResolutions(json['images'])
