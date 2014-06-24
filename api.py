@@ -1,4 +1,4 @@
-def get_tags_rencently_api(tag):
+def get_tags_recently_api(tag):
     import config
     client_id = config.client_id
     api = "https://api.instagram.com/v1/tags/{tag}"\

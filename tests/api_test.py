@@ -7,7 +7,7 @@ class TagsRecentlyTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.tag = 'cat'
-        cls.tags_api = api.get_tags_rencently_api(cls.tag)
+        cls.tags_api = api.get_tags_recently_api(cls.tag)
         cls.request = api.request_api(cls.tags_api)
 
     def test_has_config_file(self):
