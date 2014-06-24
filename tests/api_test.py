@@ -1,12 +1,14 @@
 import unittest
-import tags_recently
+import api
 
 
 class TagsRecentlyTest(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.request = tags_recently.request_api()
+        cls.tag = 'cat'
+        cls.tags_api = api.get_tags_rencently_api(cls.tag)
+        cls.request = api.request_api(cls.tags_api)
 
     def test_has_config_file(self):
         import os.path
@@ -25,11 +27,11 @@ class TagsRecentlyTest(unittest.TestCase):
 
     def test_can_get_api(self):
         import config
-        tag = config.tags[0]
-        api = tags_recently.get_api()
-        self.assertRegexpMatches(api, "https:", "use api with https")
-        self.assertRegexpMatches(api, config.client_id)
-        self.assertRegexpMatches(api, tag)
+        tag = self.tag
+        api_url = self.tags_api
+        self.assertRegexpMatches(api_url, "https:", "use api with https")
+        self.assertRegexpMatches(api_url, config.client_id)
+        self.assertRegexpMatches(api_url, tag)
 
     def test_request_api_get_something(self):
         import requests

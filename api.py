@@ -1,6 +1,5 @@
-def get_api():
+def get_tags_rencently_api(tag):
     import config
-    tag = config.tags[0]
     client_id = config.client_id
     api = "https://api.instagram.com/v1/tags/{tag}"\
           "/media/recent?client_id={client_id}"
@@ -8,6 +7,6 @@ def get_api():
     return api
 
 
-def request_api():
+def request_api(api_url):
     import requests
-    return requests.get(get_api())
+    return requests.get(api_url)
