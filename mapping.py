@@ -7,3 +7,10 @@ def json_dict_to_object(json_dict, key, target_object):
             return target_object(json_dict[key])
     else:
         raise NameError("Don't have {0} in json_dict".format(key))
+
+
+def mapping_instragram_items(json):
+    import models
+    key = 'data'
+    target_object = models.InstragramItem
+    return json_dict_to_object(json, key, target_object)

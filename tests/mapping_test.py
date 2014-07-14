@@ -12,6 +12,11 @@ class MappingTest(unittest.TestCase):
             cls.key = 'data'
             cls.target_object = models.InstragramItem
 
+    def test_mapping_instragram_items(self):
+        result = mapping.json_dict_to_object(self.json, self.key,
+                                             self.target_object)
+        self.assertTrue(len(result) > 0)
+
     def test_json_dict_to_object_len_correct(self):
         expected_result = len(self.json[self.key])
         result = mapping.json_dict_to_object(self.json, self.key,
