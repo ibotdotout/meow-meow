@@ -1,10 +1,10 @@
 def get_items(json):
-    import mapping
+    from core import mapping
     return mapping.mapping_instragram_items(json)
 
 
 def recently_tag(tags):
-    import api
+    from core import api
     tags_api = api.get_tags_recently_api(tags)
     return api.request_api(tags_api)
 

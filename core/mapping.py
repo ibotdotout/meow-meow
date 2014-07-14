@@ -10,7 +10,7 @@ def json_dict_to_object(json_dict, key, target_object):
 
 
 def mapping_instragram_items(json):
-    import models
+    from core import models
     key = 'data'
     if key in json:
         target_object = models.InstragramItem

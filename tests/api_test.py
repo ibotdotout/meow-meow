@@ -1,5 +1,5 @@
 import unittest
-import api
+from core import api
 
 
 class TagsRecentlyTest(unittest.TestCase):

@@ -1,5 +1,5 @@
 import unittest
-import mapping
+from core import mapping
 
 
 class MappingTest(unittest.TestCase):
@@ -8,7 +8,7 @@ class MappingTest(unittest.TestCase):
         import json
         with open('tests/request_test.json') as json_data:
             cls.json = json.load(json_data)
-            import models
+            from core import models
             cls.key = 'data'
             cls.target_object = models.InstragramItem
 
@@ -24,7 +24,7 @@ class MappingTest(unittest.TestCase):
         self.assertEqual(expected_result, result)
 
     def test_json_dict_to_object_data_correct(self):
-        import models
+        from core import models
         l = [0, 1, 3, 5, -7, -1]
         for i in l:
             expected_result = models.InstragramItem(self.json[self.key][i])

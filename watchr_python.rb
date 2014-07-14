@@ -21,11 +21,11 @@ def code_changed(file)
     package_name = ""
     if not file.end_with?("_test.py")
       basename = File.basename(file,'.py')
-      package_name = basename
-      file[basename] = "tests/" + basename + "_test"
+      package_name = "core." + basename
+      file["core/"+basename] = "tests/" + basename + "_test"
     else
       basename = File.basename(file,'_test.py')
-      package_name = basename
+      package_name = "core." + basename
     end
     # run nosetests with coverage
     system("nosetests --with-coverage --cover-erase --cover-package=#{package_name} -v #{file}")
