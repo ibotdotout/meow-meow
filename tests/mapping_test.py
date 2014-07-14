@@ -33,6 +33,12 @@ class MappingTest(unittest.TestCase):
             self.assertEqual(expected_result.user.username,
                              result.user.username)
 
+    def test_json_dict_to_object_with_not_list(self):
+        expected = "1403564068967133"
+        result = mapping.json_dict_to_object(self.json['pagination'],
+                                             'next_max_tag_id', str)
+        self.assertEqual(expected, result)
+
     def test_json_dict_to_object_raise_error(self):
         json = {'meta': {'code': 200}}
         self.assertRaises(NameError, mapping.json_dict_to_object, json,
