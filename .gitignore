@@ -4,6 +4,7 @@
 config.py
 tags
 *.html
+cover/
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
