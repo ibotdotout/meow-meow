@@ -12,5 +12,6 @@ def json_dict_to_object(json_dict, key, target_object):
 def mapping_instragram_items(json):
     import models
     key = 'data'
-    target_object = models.InstragramItem
-    return json_dict_to_object(json, key, target_object)
+    if key in json:
+        target_object = models.InstragramItem
+        return json_dict_to_object(json, key, target_object)
