@@ -1,31 +1,31 @@
 class User():
     def __init__(self, json):
-        self.username = json['username']
-        self.profile_picture = json['profile_picture']
-        self.full_name = json['full_name']
+        self.username = json.get('username')
+        self.profile_picture = json.get('profile_picture')
+        self.full_name = json.get('full_name')
 
 
 class Image():
     def __init__(self, json):
-        self.url = json['url']
-        self.width = json['width']
-        self.height = json['height']
+        self.url = json.get('url')
+        self.width = json.get('width')
+        self.height = json.get('height')
 
 
 class ImageResolutions():
     def __init__(self, json):
-        self.low = Image(json['low_resolution'])
-        self.thumbnail = Image(json['thumbnail'])
-        self.standard = Image(json['standard_resolution'])
+        self.low = Image(json.get('low_resolution'))
+        self.thumbnail = Image(json.get('thumbnail'))
+        self.standard = Image(json.get('standard_resolution'))
 
 
 class Caption():
     def __init__(self, json):
-        self.text = json['text']
+        self.text = json.get('text')
 
 
 class InstragramItem():
     def __init__(self, json):
-        self.user = User(json['user'])
-        self.caption = Caption(json['caption'])
-        self.images = ImageResolutions(json['images'])
+        self.user = User(json.get('user'))
+        self.caption = Caption(json.get('caption'))
+        self.images = ImageResolutions(json.get('images'))
