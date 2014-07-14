@@ -13,8 +13,7 @@ class MappingTest(unittest.TestCase):
             cls.target_object = models.InstragramItem
 
     def test_mapping_instragram_items(self):
-        result = mapping.json_dict_to_object(self.json, self.key,
-                                             self.target_object)
+        result = mapping.mapping_instragram_items(self.json)
         self.assertTrue(len(result) > 0)
 
     def test_json_dict_to_object_len_correct(self):
