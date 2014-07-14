@@ -13,7 +13,7 @@ class MappingTest(unittest.TestCase):
             cls.target_object = models.InstragramItem
 
     def test_json_dict_to_object_len_correct(self):
-        expected_result = len(self.json['data'])
+        expected_result = len(self.json[self.key])
         result = mapping.json_dict_to_object(self.json, self.key,
                                              self.target_object)
         result = len(result)
@@ -23,7 +23,7 @@ class MappingTest(unittest.TestCase):
         import models
         l = [0, 1, 3, 5, -7, -1]
         for i in l:
-            expected_result = models.InstragramItem(self.json['data'][i])
+            expected_result = models.InstragramItem(self.json[self.key][i])
             result = mapping.json_dict_to_object(self.json, self.key,
                                                  self.target_object)
             result = result[i]
