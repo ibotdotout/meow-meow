@@ -21,7 +21,10 @@ class ImageResolutions():
 
 class Caption():
     def __init__(self, json):
-        self.text = json.get('text')
+        if json:
+            self.text = json.get('text')
+        else:
+            self.text = ""
 
 
 class InstragramItem():

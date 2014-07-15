@@ -5,6 +5,7 @@ config.py
 tags
 *.html
 cover/
+lastest_request.json
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
