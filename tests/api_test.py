@@ -15,10 +15,10 @@ class TagsRecentlyTest(unittest.TestCase):
                                 'request_sample.json')
         with open(filepath, 'r') as json_file:
             json_data = json.load(json_file)
-            api.request_api = mock.Mock()
-            api.request_api.return_value = \
-                mock.Mock(spec=requests.models.Response)
-            api.request_api.return_value.json.return_value = json_data
+            with mock.patch('requests.get') as MockRequestsGet:
+                MockRequestsGet.return_value = \
+                    mock.Mock(spec=requests.models.Response)
+                MockRequestsGet.return_value.json.return_value = json_data
         cls.tag = 'cat'
         cls.tags_api = api.get_tags_recently_api(cls.tag)
         cls.request = api.request_api(cls.tags_api)
