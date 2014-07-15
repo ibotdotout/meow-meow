@@ -23,6 +23,9 @@ class TagsRecentlyTest(unittest.TestCase):
         cls.tags_api = api.get_tags_recently_api(cls.tag)
         cls.request = api.request_api(cls.tags_api)
 
+    def test_called_api_request_api(self):
+        api.request_api.assert_called_with(self.tags_api)
+
     def test_has_config_file(self):
         import os.path
         path = os.path.dirname(os.path.dirname(__file__))
