@@ -1,4 +1,5 @@
 import unittest
+from unittest import mock
 from core import api
 
 
@@ -6,14 +7,28 @@ class TagsRecentlyTest(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
+        import os.path
+        import json
+        import requests
+
+        filepath = os.path.join(os.path.dirname(__file__),
+                                'request_sample.json')
+        with open(filepath, 'r') as json_file:
+            json_data = json.load(json_file)
+            api.request_api = mock.Mock()
+            api.request_api.return_value = \
+                mock.Mock(spec=requests.models.Response)
+            api.request_api.return_value.json.return_value = json_data
         cls.tag = 'cat'
         cls.tags_api = api.get_tags_recently_api(cls.tag)
         cls.request = api.request_api(cls.tags_api)
 
     def test_has_config_file(self):
         import os.path
-        fname = "config.py"
-        self.assertTrue(os.path.isfile(fname), "please make your config first")
+        path = os.path.dirname(os.path.dirname(__file__))
+        filepath = os.path.join(path, 'config.py')
+        self.assertTrue(os.path.isfile(filepath),
+                        "please make your config first")
 
     def test_config_has_client_id(self):
         import config

@@ -6,7 +6,10 @@ class MappingTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         import json
-        with open('tests/request_test.json') as json_data:
+        import os.path
+        filepath = os.path.join(os.path.dirname(__file__),
+                                'request_sample.json')
+        with open(filepath, 'r') as json_data:
             cls.json = json.load(json_data)
             from core import models
             cls.key = 'data'
