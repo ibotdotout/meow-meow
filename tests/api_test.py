@@ -13,18 +13,18 @@ class TagsRecentlyTest(unittest.TestCase):
 
         filepath = os.path.join(os.path.dirname(__file__),
                                 'request_sample.json')
-        with open(filepath, 'r') as json_file:
-            json_data = json.load(json_file)
-            with mock.patch('requests.get') as MockRequestsGet:
-                MockRequestsGet.return_value = \
-                    mock.Mock(spec=requests.models.Response)
-                MockRequestsGet.return_value.json.return_value = json_data
         cls.tag = 'cat'
         cls.tags_api = api.get_tags_recently_api(cls.tag)
-        cls.request = api.request_api(cls.tags_api)
+        with open(filepath, 'r') as json_file:
+            json_data = json.load(json_file)
+            with mock.patch('requests.get') as cls.mock_requests_get:
+                cls.mock_requests_get.return_value = mock_response = \
+                    mock.Mock(spec=requests.models.Response)
+                mock_response.json.return_value = json_data
+                cls.request = api.request_api(cls.tags_api)
 
     def test_called_api_request_api(self):
-        api.request_api.assert_called_with(self.tags_api)
+        self.mock_requests_get.assert_called_with(self.tags_api)
 
     def test_has_config_file(self):
         import os.path
