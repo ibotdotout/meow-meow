@@ -14,6 +14,7 @@ def recently_tag(tags):
     tags_api = api.get_tags_recently_api(tags)
     return api.request_api(tags_api)
 
+
 def generate_mako_template(items):
     from mako.lookup import TemplateLookup
     mylookup = TemplateLookup(directories=['templates'],
