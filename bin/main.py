@@ -14,16 +14,19 @@ def recently_tag(tags):
     tags_api = api.get_tags_recently_api(tags)
     return api.request_api(tags_api)
 
+def generate_mako_template(items):
+    from mako.lookup import TemplateLookup
+    mylookup = TemplateLookup(directories=['templates'],
+                              module_directory='/tmp/mako_modules',
+                              input_encoding='utf-8')
+    mytemplate = mylookup.get_template("index.mako")
+    return mytemplate.render(items=items)
+
 
 def write_html(items):
+    html = generate_mako_template(items)
     with open('index.html', 'w') as file:
-        file.write('<html>')
-        file.write('<body>')
-        for i in items:
-            img = "<img src={0}></img>".format(i.images.thumbnail.url)
-            file.write(img)
-        file.write('</body>')
-        file.write('</html>')
+        file.write(html)
 
 
 def tags_from_config():
