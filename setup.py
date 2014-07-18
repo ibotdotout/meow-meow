@@ -7,7 +7,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 CONTROLLER = True
 COMPUTE_NODE = True
 
-requires = ['requests', 'nose', 'mako']
+requires = ['requests', 'mako', 'nose', 'rednose', 'coverage']
 scripts = []
 
 setup(name='meow-meow',
