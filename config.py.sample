@@ -2,4 +2,5 @@
 client_id = "INSERT YOU SECRET CLIENT ID"
 
 # put #tags here
+# tags = ['dorachan']
 tags = ['INSERT YOU TAGS']  # ex. dorachan
