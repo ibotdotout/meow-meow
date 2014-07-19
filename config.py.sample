@@ -1,6 +1,6 @@
 # put client_id here
-client_id = "INSERT YOU SECRET CLIENT ID"
+client_id = "INSERT YOU SECRET CLIENT ID HERE"
 
 # put #tags here
 # tags = ['dorachan']
-tags = ['INSERT YOU TAGS']  # ex. dorachan
+tags = ['INSERT YOU TAGS HERE']  # ex. dorachan
