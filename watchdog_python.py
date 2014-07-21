@@ -11,7 +11,7 @@ def when_file_changed(filename):
         Unittest Monitoring with coverage filtering
         file - ./<projectname>/<package>/<file>.py
             ex. ./meow_meow/core/api.py
-        testfile - ./tests/unit/<pacakage>/test_<file>.py
+        testfile - ./tests/unit/<package>/test_<file>.py
             ex. ./tests/unit/core/test_api.py
     """
     def projectname():
