@@ -12,5 +12,3 @@ if os.path.isfile("config.ini"):
 else:
     client_id = os.environ['CLIENT_ID']
     tags = os.environ['TAGS']
-
-print(client_id, tags)
