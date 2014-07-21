@@ -1,7 +1,7 @@
 # Created by http://www.gitignore.io
 
 ## project ###
-config.py
+config.ini
 tags
 *.html
 cover/
