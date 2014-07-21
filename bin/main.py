@@ -5,12 +5,12 @@ def dump_json(json_data):
 
 
 def get_items(json):
-    from core import mapping
+    from meow_meow.core import mapping
     return mapping.mapping_instragram_items(json)
 
 
 def recently_tag(tags):
-    from core import api
+    from meow_meow.core import api
     tags_api = api.get_tags_recently_api(tags)
     return api.request_api(tags_api)
 

@@ -1,6 +1,6 @@
 import unittest
 from unittest import mock
-from core import api
+from meow_meow.core import api
 
 
 class TagsRecentlyTest(unittest.TestCase):
@@ -28,8 +28,7 @@ class TagsRecentlyTest(unittest.TestCase):
 
     def test_has_config_file(self):
         import os.path
-        path = os.path.dirname(os.path.dirname(__file__))
-        filepath = os.path.join(path, 'config.py')
+        filepath = "config.py"
         self.assertTrue(os.path.isfile(filepath),
                         "please make your config first")
 

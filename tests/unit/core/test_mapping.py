@@ -1,5 +1,5 @@
 import unittest
-from core import mapping
+from meow_meow.core import mapping
 
 
 class MappingTest(unittest.TestCase):
@@ -11,7 +11,7 @@ class MappingTest(unittest.TestCase):
                                 'request_sample.json')
         with open(filepath, 'r') as json_data:
             cls.json = json.load(json_data)
-            from core import models
+            from meow_meow.core import models
             cls.key = 'data'
             cls.target_object = models.InstragramItem
 
@@ -27,7 +27,7 @@ class MappingTest(unittest.TestCase):
         self.assertEqual(expected_result, result)
 
     def test_json_dict_to_object_data_correct(self):
-        from core import models
+        from meow_meow.core import models
         l = [0, 1, 3, 5, -7, -1]
         for i in l:
             expected_result = models.InstragramItem(self.json[self.key][i])

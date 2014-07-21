@@ -1,5 +1,5 @@
 import unittest
-from core import models
+from meow_meow.core import models
 
 
 class ModelsTest(unittest.TestCase):
