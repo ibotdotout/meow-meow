@@ -1,6 +1,9 @@
 <html>
 <head>
-<meta charset="UTF-8" />
+  <title>
+    Meow Meow ~
+  </title>
+  <meta charset="UTF-8" />
 </head>
 <body>
   ${next.body()}
