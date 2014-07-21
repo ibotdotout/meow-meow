@@ -11,4 +11,4 @@ if os.path.isfile("config.ini"):
     tags = [i.strip() for i in config.get('DEFAULT', 'tags').split(',')]
 else:
     client_id = os.environ['CLIENT_ID']
-    tags = os.environ['TAGS']
+    tags = [i.strip() for i in os.environ['TAGS'].split(',')]
