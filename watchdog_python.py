@@ -9,14 +9,14 @@ from watchdog.events import PatternMatchingEventHandler
 def when_file_changed(filename):
     """
         Unittest Monitoring with coverage filtering
-        file - ./<projectname>/<packages>/<file>.py
+        file - ./<projectname>/<package>/<file>.py
             ex. ./meow_meow/core/api.py
-        testfile - ./tests/unit/<pacakages>/test_<file>.py
+        testfile - ./tests/unit/<pacakage>/test_<file>.py
             ex. ./tests/unit/core/test_api.py
     """
-    def top_package():
+    def projectname():
         """
-            Toppackage from name of current directory ('.')
+            Projectname from name of current directory ('.')
             if there are dash '-' in its name replace to underscore '_'
         """
         return os.path.abspath(".").rsplit("/", 1)[1].replace("-", "_")
@@ -27,14 +27,14 @@ def when_file_changed(filename):
             package = filename.replace("./", "").replace(".py", "")
         else:
             package = filename.replace("./tests/unit", "").replace(".py", "")
-            package = top_package() + package.replace("/test_", "/")
+            package = projectname() + package.replace("/test_", "/")
         package = package.replace("/", ".")
         return package
 
     def test_file(filename):
         basename = os.path.basename(filename)
         if not basename.startswith("test_"):
-            filename = filename.replace(top_package(), "tests/unit")
+            filename = filename.replace(projectname(), "tests/unit")
             filename = filename.replace(basename, "test_" + basename)
         return filename
 
