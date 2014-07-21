@@ -1,1 +1,1 @@
-web: gunicorn route:app --log-file=-
+web: bin/web
