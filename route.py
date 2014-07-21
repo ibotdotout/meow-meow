@@ -3,6 +3,7 @@ from flask import Flask
 from meow_meow.render import index
 
 app = Flask(__name__)
+app.config['DEBUG'] = os.environ.get('DEBUG', False)
 
 
 @app.route('/')
