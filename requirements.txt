@@ -1,13 +1,1 @@
-Flask==0.10.1
-Jinja2==2.7.3
-Mako==1.0.0
-MarkupSafe==0.23
-PyYAML==3.11
-Werkzeug==0.9.6
-argh==0.25.0
-gunicorn==19.0.0
-itsdangerous==0.24
 .
-pathtools==0.1.2
-python-termstyle==0.1.10
-requests==2.3.0

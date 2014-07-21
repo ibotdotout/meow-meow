@@ -1,11 +1,12 @@
 # Created by http://www.gitignore.io
 
 ## project ###
-config.py
+#config.py
 tags
 *.html
 cover/
 lastest_request.json
+.env
 
 ### Python ###
 # Byte-compiled / optimized / DLL files

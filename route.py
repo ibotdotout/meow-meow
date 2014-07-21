@@ -7,9 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def render():
-    print(dir(index))
-    html = index.render()
-    return html
+    return index.render()
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
