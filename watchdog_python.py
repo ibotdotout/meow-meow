@@ -7,7 +7,18 @@ from watchdog.events import PatternMatchingEventHandler
 
 
 def when_file_changed(filename):
+    """
+        Unittest Monitoring with coverage filtering
+        file - ./<projectname>/<packages>/<file>.py
+            ex. ./meow_meow/core/api.py
+        testfile - ./tests/unit/<pacakages>/test_<file>.py
+            ex. ./tests/unit/core/test_api.py
+    """
     def top_package():
+        """
+            Toppackage from name of current directory ('.')
+            if there are dash '-' in its name replace to underscore '_'
+        """
         return os.path.abspath(".").rsplit("/", 1)[1].replace("-", "_")
 
     def package(filename):
@@ -40,16 +51,15 @@ def cls():
 
 
 class ModifiedHandler(PatternMatchingEventHandler):
-    patterns = ["*.py"]
+    patterns = ["*.py"]  # Monitor only matched patterns
 
     def on_created(self, event):
+        """" For Vim :w - not modify that deleted and created file instead. """
         when_file_changed(event.src_path)
 
-    def on_any_event(self, event):
-        pass
-
     def on_modified(self, event):
-        pass
+        """ For other text-editor ex.sublime """
+        when_file_changed(event.src_path)
 
 if __name__ == '__main__':
     args = sys.argv[1:]
