@@ -31,7 +31,7 @@ def write_html(items):
 
 
 def tags_from_config():
-    import config
+    from config import config
     return config.tags
 
 

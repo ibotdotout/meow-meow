@@ -19,7 +19,7 @@ def generate_mako_template(items):
 
 
 def tags_from_config():
-    import config
+    from config import config
     return config.tags
 
 
@@ -38,5 +38,5 @@ def render():
     print_result(items)
     return generate_mako_template(items)
 
-#if __name__ == '__main__':
-    #render()
+if __name__ == '__main__':
+    render()

@@ -28,22 +28,22 @@ class TagsRecentlyTest(unittest.TestCase):
 
     def test_has_config_file(self):
         import os.path
-        filepath = "config.py"
+        filepath = "config/config.py"
         self.assertTrue(os.path.isfile(filepath),
                         "please make your config first")
 
     def test_config_has_client_id(self):
-        import config
+        from config import config
         self.assertTrue(config.client_id,
                         "put your client id in config file")
 
     def test_config_has_tags(self):
-        import config
+        from config import config
         self.assertTrue(config.tags,
                         "put your tags id in config file")
 
     def test_can_get_api(self):
-        import config
+        from config import config
         tag = self.tag
         api_url = self.tags_api
         self.assertRegexpMatches(api_url, "https:", "use api with https")
