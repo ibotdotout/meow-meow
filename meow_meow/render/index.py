@@ -10,11 +10,8 @@ def recently_tag(tags):
 
 
 def generate_mako_template(items):
-    from mako.lookup import TemplateLookup
-    mylookup = TemplateLookup(directories=['templates'],
-                              module_directory='/tmp/mako_modules',
-                              input_encoding='utf-8')
-    mytemplate = mylookup.get_template("index.mako")
+    from meow_meow.render import config
+    mytemplate = config.mako_lookup.get_template("index.mako")
     return mytemplate.render(items=items)
 
 
@@ -23,19 +20,15 @@ def tags_from_config():
     return config.tags
 
 
-def print_result(items):
-    if items:
-        print("look the cats")
-    else:
-        print("Can't get items")
-
-
-def render():
+def quiry():
     tags = tags_from_config()
     tags = tags[0]
-    respone = recently_tag(tags)
-    items = get_items(respone.json())
-    print_result(items)
+    response = recently_tag(tags)
+    return response
+
+
+def render(response=quiry()):
+    items = get_items(response.json())
     return generate_mako_template(items)
 
 if __name__ == '__main__':
