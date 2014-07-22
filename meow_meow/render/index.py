@@ -20,14 +20,14 @@ def tags_from_config():
     return config.tags
 
 
-def quiry():
+def query():
     tags = tags_from_config()
     tags = tags[0]
     response = recently_tag(tags)
     return response
 
 
-def render(response=quiry()):
+def render(response=query()):
     items = get_items(response.json())
     return generate_mako_template(items)
 

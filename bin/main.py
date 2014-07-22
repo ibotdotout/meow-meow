@@ -26,7 +26,7 @@ def debug():
 
 def run():
     from meow_meow.render import index
-    response = index.quiry()
+    response = index.query()
     dump_json(response.json())
     html = index.render(response)
     write_html(html, 'index.html')
