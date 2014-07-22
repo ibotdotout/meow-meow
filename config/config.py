@@ -31,4 +31,4 @@ def config_ini_exists(CONFIG_PATH):
 if config_ini_exists(CONFIG_PATH):
     config_from_config_dot_ini(CONFIG_PATH)
 
-tags = [i.strip() for i in raw_tags.split(',')]
+tags = [i.strip() for i in remove_quote(raw_tags).split(',')]
