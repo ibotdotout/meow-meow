@@ -15,9 +15,9 @@ class MappingTest(unittest.TestCase):
             cls.key = 'data'
 
     @mock.patch('meow_meow.core.models')
-    def test_mapping_instragram_items(self, mock_target_obj):
-        mock_target_obj.InstragramItem = lambda x: x
-        result = mapping.mapping_instragram_items(self.json)
+    def test_mapping_instagram_items(self, mock_target_obj):
+        mock_target_obj.InstagramItem = lambda x: x
+        result = mapping.mapping_instagram_items(self.json)
         self.assertTrue(len(result) > 0)
 
     def test_json_dict_to_object_len_correct(self):

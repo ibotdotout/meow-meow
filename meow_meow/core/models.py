@@ -27,7 +27,7 @@ class Caption():
             self.text = ""
 
 
-class InstragramItem():
+class InstagramItem():
     def __init__(self, json):
         self.user = User(json.get('user'))
         self.caption = Caption(json.get('caption'))

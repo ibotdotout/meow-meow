@@ -12,8 +12,8 @@ def json_dict_to_object(json_dict, key, target_object):
         raise NameError("Don't have {0} in json_dict".format(key))
 
 
-def mapping_instragram_items(json):
+def mapping_instagram_items(json):
     key = 'data'
     if key in json:
-        target_object = models.InstragramItem
+        target_object = models.InstagramItem
         return json_dict_to_object(json, key, target_object)

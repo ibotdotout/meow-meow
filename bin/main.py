@@ -17,7 +17,7 @@ def debug():
         import json
         from meow_meow.core import mapping
         json_data = json.load(json_file)
-        items = mapping.mapping_instragram_items(json_data)
+        items = mapping.mapping_instagram_items(json_data)
         if items:
             print("look the cats")
         else:

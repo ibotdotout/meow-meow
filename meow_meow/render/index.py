@@ -1,6 +1,6 @@
 def get_items(json):
     from meow_meow.core import mapping
-    return mapping.mapping_instragram_items(json)
+    return mapping.mapping_instagram_items(json)
 
 
 def recently_tag(tags):

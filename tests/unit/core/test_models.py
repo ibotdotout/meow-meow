@@ -40,9 +40,9 @@ class ModelsTest(unittest.TestCase):
         caption = models.Caption(json)
         self.assertEqual(caption.text, json['text'])
 
-    def test_instragram_item_model(self):
+    def test_instagram_item_model(self):
         json = self.json
-        item = models.InstragramItem(json)
+        item = models.InstagramItem(json)
 
         # caption model
         caption_json = json['caption']
