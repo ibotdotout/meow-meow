@@ -1,3 +1,4 @@
 [DEFAULT]
 client_id = INSERT YOU SECRET CLIENT ID HERE
 tags = INSERT YOU TAGS HERE  # ex. cat, kitty
+filter_keywords = INSERT YOU KEYWORDS HERE #ex. ขาย, สินค้า
