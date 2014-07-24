@@ -5,9 +5,11 @@ import os
 
 
 CONFIG_PATH = "config/config.ini"
-client_id = os.environ.get('CLIENT_ID')
-raw_tags = os.environ.get('TAGS')
-raw_filter_keywords = os.environ.get('FILTER_KEYWORDS')
+DEFAULT_VALUE = None
+
+client_id = os.environ.get('CLIENT_ID', DEFAULT_VALUE)
+raw_tags = os.environ.get('TAGS', DEFAULT_VALUE)
+raw_filter_keywords = os.environ.get('FILTER_KEYWORDS', DEFAULT_VALUE)
 
 
 def remove_quote(x):
@@ -18,8 +20,9 @@ def remove_quote(x):
 def config_from_config_dot_ini(CONFIG_PATH):
     """ load configuration from config.ini """
     import configparser
+    import collections
     global client_id, raw_tags, raw_filter_keywords
-    config = configparser.ConfigParser()
+    config = configparser.ConfigParser(collections.defaultdict(DEFAULT_VALUE))
     config.read(CONFIG_PATH)
     client_id = config.get('DEFAULT', 'client_id')
     raw_filter_keywords = config.get('DEFAULT', 'filter_keywords')
@@ -33,6 +36,13 @@ def config_ini_exists(CONFIG_PATH):
 if config_ini_exists(CONFIG_PATH):
     config_from_config_dot_ini(CONFIG_PATH)
 
-tags = [i.strip() for i in remove_quote(raw_tags).split(',')]
-filter_keywords = [i.strip() for i in remove_quote(raw_filter_keywords)
-                   .split(',')]
+try:
+    tags = [i.strip() for i in remove_quote(raw_tags).split(',')]
+    if raw_filter_keywords:
+        filter_keywords = [i.strip() for i in remove_quote(raw_filter_keywords)
+                           .split(',')]
+    else:
+        filter_keywords = ""
+except Exception:
+    print("Can't load configuration")
+    raise SystemExit(1)
