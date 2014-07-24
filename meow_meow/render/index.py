@@ -28,7 +28,11 @@ def query_json():
 
 
 def render(response=query_json()):
+    from config import config
+    from meow_meow.core import filters
     items = get_items(response)
+    items = filters.filter_items(items, config.filter_keywords, lambda x:
+                                 x.caption.text)
     return generate_mako_template(items)
 
 if __name__ == '__main__':
