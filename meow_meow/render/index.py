@@ -27,9 +27,11 @@ def query_json():
     return response.json()
 
 
-def render(response=query_json()):
+def render(response=None):
     from config import config
     from meow_meow.core import filters
+    if not response:
+        response = query_json()
     items = get_items(response)
     items = filters.filter_items(items, config.filter_keywords, lambda x:
                                  x.caption.text)
